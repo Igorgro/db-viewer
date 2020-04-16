@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Лабораторная работа №5</title>
+        <script>
+            window.jQuery = window.$ = require('jquery');
+        </script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+        <script src="js/index.js"></script>
+    </head>
+    <body class="bg-secondary">
+        <nav class="navbar navbar-light bg-dark">
+            <a class="navbar-brand text-light" href="#">Лабораторная работа №5</a>
+            <span class="navbar-text text-light" id="status-container">
+                <i class="fa fa-circle text-error text-danger" aria-hidden="true" id="status-icon"></i>
+                <span id="status-text" class="text-danger h6">Not connected</span>
+            </span>
+        </nav>
+        <div class="modal" role="dialog" id="cn-dialog">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Connect to database</h5>
+                    </div>
+                    <div class="modal-body">
+                        <form id="cn-dialog-form">
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="col-9">
+                                        <input type="text" class="form-control" placeholder="Host" id="cn-form-host" name="host">
+                                    </div>
+                                    <label class="col-form-label-sm">:</label>
+                                    <div class="col">
+                                        <input type="text" class="form-control" placeholder="Port" id="cn-form-port" name="port">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Username" id="cn-form-user" name="user">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" placeholder="Password" id="cn-form-password" name="password">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="cn-dialog-exit">Exit</button>
+                        <button type="button" class="btn btn-primary" id="cn-dialog-connect">Connect</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

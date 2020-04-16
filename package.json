@@ -1,0 +1,25 @@
+{
+    "name": "db-viewer",
+    "version": "1.0.0",
+    "description": "Simple database viewer",
+    "main": "index.js",
+    "scripts": {
+        "start": "electron .",
+        "debug": "electron --inspect=5858 --remote-debugging-port=9222 ."
+    },
+    "keywords": [
+        "electron",
+        "postgres"
+    ],
+    "author": "Igor Mahov",
+    "license": "MIT",
+    "devDependencies": {
+        "eslint": "^6.8.0"
+    },
+    "dependencies": {
+        "electron": "^8.2.2",
+        "eslint-plugin-json": "^2.1.1",
+        "jquery": "^3.5.0",
+        "pg": "^8.0.2"
+    }
+}
