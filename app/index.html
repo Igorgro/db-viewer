@@ -14,13 +14,34 @@
         <script src="js/index.js"></script>
     </head>
     <body class="bg-secondary">
-        <nav class="navbar navbar-light bg-dark">
+        <nav class="navbar navbar-light fixed-top bg-dark">
             <a class="navbar-brand text-light" href="#">Лабораторная работа №5</a>
             <span class="navbar-text text-light" id="status-container">
                 <i class="fa fa-circle text-error text-danger" aria-hidden="true" id="status-icon"></i>
                 <span id="status-text" class="text-danger h6">Not connected</span>
             </span>
         </nav>
+        <div class="container-sm">
+            <div class="row mb-4">
+                <div class="col">
+                    <form id="tb-select-form">
+                        <div class="form-row">
+                            <div class="col">
+                                <select class="form-control bg-dark text-light" id="tb-select-select" name="table">
+                                    <option value="" disabled selected>Select table</option>
+                                </select>
+                            </div>
+                            <div class="col-0">
+                                <button type="button" class="btn btn-primary" id="tb-select">Select</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col" id="table-container"></div>
+            </div>
+        </div>
         <div class="modal" role="dialog" id="cn-dialog">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
@@ -51,6 +72,26 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" id="cn-dialog-exit">Exit</button>
                         <button type="button" class="btn btn-primary" id="cn-dialog-connect">Connect</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal" role="hide" id="db-dialog">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Select database to use</h5>
+                    </div>
+                    <div class="modal-body">
+                        <form id="db-select-form">
+                            <div class="form-group">
+                                <select class="form-control" id="db-select" name="database">
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" id="db-dialog-select">Select</button>
                     </div>
                 </div>
             </div>
