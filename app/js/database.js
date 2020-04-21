@@ -1,5 +1,5 @@
 const { Client } = require('pg');
-const { Table } = require('./table.js');
+const { Table } = require('./table');
 
 
 class Database {

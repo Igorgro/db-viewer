@@ -1,2 +1,2 @@
 # Database viewer
-Simple database viewer written in [Electron](https://www.electronjs.org), [Bootstrap](https://getbootstrap.com) and PostgreSQL.
+Simple Postgres database viewer written in [Electron](https://www.electronjs.org) and [Bootstrap](https://getbootstrap.com).

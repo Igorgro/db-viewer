@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Лабораторная работа №5</title>
+        <title>Database viewer</title>
         <script>
             window.jQuery = window.$ = require('jquery');
         </script>
@@ -11,11 +11,18 @@
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
-        <script src="js/index.js"></script>
+        <script>
+            require('./js/index.js');
+        </script>
     </head>
     <body class="bg-secondary">
-        <nav class="navbar navbar-light fixed-top bg-dark">
-            <a class="navbar-brand text-light" href="#">Лабораторная работа №5</a>
+        <nav class="navbar navbar-light fixed-top bg-success navbar-primary p-1">
+            <a href="#" class="ml-auto" id="close-button">
+                <i class="fa fa-times text-light" aria-hidden="true"></i>
+            </a>
+        </nav>
+        <nav class="navbar navbar-light fixed-top bg-dark navbar-second">
+            <a class="navbar-brand text-light" href="#">Database viewer</a>
             <span class="navbar-text text-light" id="status-container">
                 <i class="fa fa-circle text-error text-danger" aria-hidden="true" id="status-icon"></i>
                 <span id="status-text" class="text-danger h6">Not connected</span>
@@ -40,60 +47,6 @@
             </div>
             <div class="row">
                 <div class="col" id="table-container"></div>
-            </div>
-        </div>
-        <div class="modal" role="dialog" id="cn-dialog">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Connect to database</h5>
-                    </div>
-                    <div class="modal-body">
-                        <form id="cn-dialog-form">
-                            <div class="form-group">
-                                <div class="form-row">
-                                    <div class="col-9">
-                                        <input type="text" class="form-control" placeholder="Host" id="cn-form-host" name="host">
-                                    </div>
-                                    <label class="col-form-label-sm">:</label>
-                                    <div class="col">
-                                        <input type="text" class="form-control" placeholder="Port" id="cn-form-port" name="port">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Username" id="cn-form-user" name="user">
-                            </div>
-                            <div class="form-group">
-                                <input type="password" class="form-control" placeholder="Password" id="cn-form-password" name="password">
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" id="cn-dialog-exit">Exit</button>
-                        <button type="button" class="btn btn-primary" id="cn-dialog-connect">Connect</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal" role="hide" id="db-dialog">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Select database to use</h5>
-                    </div>
-                    <div class="modal-body">
-                        <form id="db-select-form">
-                            <div class="form-group">
-                                <select class="form-control" id="db-select" name="database">
-                                </select>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" id="db-dialog-select">Select</button>
-                    </div>
-                </div>
             </div>
         </div>
     </body>

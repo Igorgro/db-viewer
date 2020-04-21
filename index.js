@@ -11,6 +11,7 @@ function createWindow() {
         webPreferences: {
             nodeIntegration: true
         },
+        frame: false
     });
     win.loadFile('app/index.html');
     win.removeMenu();

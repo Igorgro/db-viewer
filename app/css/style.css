@@ -1,5 +1,18 @@
 body {
-    padding: 64px;
+    padding: 104px;
+}
+.navbar-primary {
+    z-index: 9999;
+    -webkit-app-region: drag;
+}
+
+#close-button {
+    margin-right: 4px;
+    -webkit-app-region: no-drag;
+}
+
+.navbar-second {
+    margin-top: 32px;
 }
 
 #status-icon {
@@ -11,6 +24,10 @@ body {
 #status-container {
     position: relative;
 }
+
+.form-control::-webkit-input-placeholder {
+    color: #6c757d;
+  }
 
 * {
     user-select: none;

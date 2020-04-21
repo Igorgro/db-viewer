@@ -4,8 +4,9 @@
     "description": "Simple database viewer",
     "main": "index.js",
     "scripts": {
-        "start": "electron .",
-        "debug": "electron --inspect=5858 --remote-debugging-port=9222 ."
+        "start": "npx electron .",
+        "debug": "npx electron --inspect=5858 --remote-debugging-port=9222 .",
+        "build-windows": "npx electron-packager ./ db-viewer --platform=win32 --arch=x64 --icon ./app/res/favicon.ico --out ./dist"
     },
     "keywords": [
         "electron",
@@ -14,10 +15,11 @@
     "author": "Igor Mahov",
     "license": "MIT",
     "devDependencies": {
+        "electron": "^8.2.2",
+        "electron-packager": "^14.2.1",
         "eslint": "^6.8.0"
     },
     "dependencies": {
-        "electron": "^8.2.2",
         "eslint-plugin-json": "^2.1.1",
         "jquery": "^3.5.0",
         "pg": "^8.0.2"
