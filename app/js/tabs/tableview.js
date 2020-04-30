@@ -2,6 +2,7 @@ class TableView {
     constructor(table, parent) {
         this.tableElem = document.createElement('table');
         this.tableElem.className = 'table bg-dark text-light';
+        this.tableElem.style.position = 'relative';
 
         let tableHeadElem = document.createElement('thead');
         let tableHeadRowElem = document.createElement('tr');

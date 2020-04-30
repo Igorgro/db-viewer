@@ -1,5 +1,10 @@
+html {
+    height: 100%;
+}
+
 body {
-    padding: 104px;
+    padding-top: 88px;
+    height: 100%;
 }
 .navbar-primary {
     z-index: 9999;
@@ -23,6 +28,47 @@ body {
 }
 #status-container {
     position: relative;
+}
+
+#sidebar-menu {
+    width: 180px;
+    border-right: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.menu-item:not(.active) {
+    color: rgb(180, 180, 180);
+}
+.menu-item:not(.active):hover {
+    color: rgb(220, 220, 220);
+}
+.menu-item.active {
+    color: rgb(250, 250, 250);
+}
+
+#content-container {
+    padding-top: 1rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    padding-bottom: 2rem;
+    max-height: 100%;
+    overflow: auto;
+}
+
+.tab {
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.table-container-row {
+    overflow: hidden;
+    height: 100%;
+}
+
+#table-container {
+    overflow-y: auto;
+    height: 100%;
 }
 
 .form-control::-webkit-input-placeholder {

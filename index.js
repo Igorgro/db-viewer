@@ -15,10 +15,11 @@ function createWindow() {
     });
     win.loadFile('app/index.html');
     win.removeMenu();
+    win.webContents.openDevTools();
     win.webContents.on('did-finish-load', function() {
         win.show();
     });
-    win.maximize();
+    // win.maximize();
 }
 
 app.whenReady().then(createWindow);

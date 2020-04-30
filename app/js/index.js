@@ -1,33 +1,53 @@
 const { Database } = require('./database');
-const { TableView } = require('./tableview');
+const { DatabaseTab } = require('./tabs/databasetab');
+const { QueriesTab } = require('./tabs/queriestab');
+const { SearchTab } = require('./tabs/searchtab');
 const { ConnectDialog } = require('./dialogs/connectdialog');
 const { DatabaseSelectDialog } = require('./dialogs/databaseselectdialog');
-const { getFormAsObject } = require('./utilities');
+const fs = require('fs');
+const path = require('path');
+
 
 let database = null;
 let cnDialog = null;
 let dbSelectDialog = null;
-let tableView = null;
+let dbTab = null;
+let queriesTab = null;
+let searchTab = null;
+let settings = null;
+
+let menu = [ 'dbviewer', 'queries', 'search' ];
 
 function main() {
+    loadSettings();
     initVariables();
     initEvents();
+    selectMenuItem(menu[0]);
     showConnectDialog();
 }
 
 function initVariables() {
-    $('#cn-form-port').mask('0000');
+    dbTab = new DatabaseTab();
+    queriesTab = new QueriesTab(settings['queries']);
+    searchTab = new SearchTab(settings['search']);
 }
 function initEvents() {
     $('#close-button').on('click', () => {
         window.close();
     });
-    $('#tb-select').on('click', () => {
-        selectTable();
+    $('.menu-item').on('click', (event) => {
+        onMenuItemClicked(event);
     });
+
+
     window.addEventListener('close', () => {
         database.end();
     });
+}
+
+function loadSettings() {
+    let content = fs.readFileSync(path.resolve(__dirname, '../res/settings.json'));
+    settings = JSON.parse(content);
 }
 
 function setStatus(connected, host) {
@@ -49,6 +69,17 @@ function setStatus(connected, host) {
     }
 }
 
+function onMenuItemClicked(event) {
+    selectMenuItem(event.target.id.split(/item-/)[1]);
+}
+
+function selectMenuItem(item) {
+    $('.menu-item').removeClass('active');
+    $('.tab').hide();
+    $('#item-' + item).addClass('active');
+    $('#tab-' + item).show();
+}
+
 function showConnectDialog() {
     if (cnDialog) {
         cnDialog.del();
@@ -59,7 +90,6 @@ function showConnectDialog() {
         window.close();
     });
     cnDialog.on('accept', () => {
-        console.log(cnDialog.getForm());
         connectToDatabase(cnDialog.getForm());
     });
 }
@@ -92,27 +122,14 @@ function showDatabasesDialog() {
 function selectDatabase(formObj) {
     database.selectDB(formObj.database).then(() => {
         dbSelectDialog.hide();
-        showTablesSelect();
+        dbTab.setDatabase(database);
+        queriesTab.setDatabase(database);
+        searchTab.setDatabase(database);
     });
-}
-
-function showTablesSelect() {
-    database.getTables().then((result) => {
-        $('#tb-select-select').empty();
-        let emptyOption = new Option('Select table', '');
-        emptyOption.setAttribute('disabled', true);
-        emptyOption.setAttribute('selected', true);
-        result.forEach((db) => {
-            $('#tb-select-select').append(new Option(db, db));
-        });
-    });
-}
-
-async function selectTable() {
-    await database.getTableFromServer(getFormAsObject($('#tb-select-form')).table);
-    let table = database.getCurrentTable();
-    $('#table-container').empty();
-    tableView = new TableView(table, $('#table-container'));
 }
 
 window.addEventListener('load', main);
+`
+⎧ 1 ⎫
+⎪ 2 ⎪
+⎩ 3 ⎭`;

@@ -61,13 +61,11 @@ class Dialog {
     }
 
     on(event, handler) {
-        console.log('on method', event);
         switch(event) {
             case 'accept':
                 $('#accept-button-' + this.id).on('click', handler);
                 break;
             case 'reject':
-                console.log('reject handler set');
                 $('#reject-button-' + this.id).on('click', handler);
                 break;
         }

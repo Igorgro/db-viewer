@@ -37,6 +37,7 @@ class ConnectDialog extends FormDialog {
         portInput.classList.add('form-control', 'bg-dark', 'text-light');
         portInput.placeholder = 'Port';
         portInput.name = 'port';
+        portInput.id = 'port-' + this.id;
         formColumn2.append(portInput);
 
         let formGroup2 = document.createElement('div');
@@ -60,6 +61,8 @@ class ConnectDialog extends FormDialog {
         passwordInput.placeholder = 'Password';
         passwordInput.name = 'password';
         formGroup3.append(passwordInput);
+
+        $('#port-' + this.id).mask('0000');
     }
 }
 

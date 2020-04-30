@@ -16,11 +16,13 @@
         </script>
     </head>
     <body class="bg-secondary">
+        <!--Window frame-->
         <nav class="navbar navbar-light fixed-top bg-success navbar-primary p-1">
             <a href="#" class="ml-auto" id="close-button">
                 <i class="fa fa-times text-light" aria-hidden="true"></i>
             </a>
         </nav>
+        <!--Navbar-->
         <nav class="navbar navbar-light fixed-top bg-dark navbar-second">
             <a class="navbar-brand text-light" href="#">Database viewer</a>
             <span class="navbar-text text-light" id="status-container">
@@ -28,25 +30,102 @@
                 <span id="status-text" class="text-danger h6">Not connected</span>
             </span>
         </nav>
-        <div class="container-sm">
-            <div class="row mb-4">
-                <div class="col">
-                    <form id="tb-select-form">
-                        <div class="form-row">
+        <div class="container-fluid h-100" id="main-container">
+            <div class="row h-100" id="main-row">
+                <!--Sidebar menu-->
+                <div class="pt-3 pl-3 pr-2 h-100" id="sidebar-menu">
+                    <div class="row">
+                        <div class="col">
+                            <h5 class="menu-item" id="item-dbviewer">Databse viewer</h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <h5 class="menu-item" id="item-queries">Preset queries</h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <h5 class="menu-item" id="item-search">Search</h5>
+                        </div>
+                    </div>
+                </div>
+                <!--Content column-->
+                <div class="col" id="content-container">
+                    <!--Database view tab-->
+                    <div class="container-sm tab" id="tab-dbviewer">
+                        <div class="row mb-4">
                             <div class="col">
-                                <select class="form-control bg-dark text-light" id="tb-select-select" name="table">
-                                    <option value="" disabled selected>Select table</option>
-                                </select>
-                            </div>
-                            <div class="col-0">
-                                <button type="button" class="btn btn-primary" id="tb-select">Select</button>
+                                <form id="tb-select-form">
+                                    <div class="form-row">
+                                        <div class="col">
+                                            <select class="form-control bg-dark text-light" id="tb-select-select" name="table">
+                                                <option value="" disabled selected>Select table</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-0">
+                                            <button type="button" class="btn btn-primary" id="tb-select">Select</button>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
-                    </form>
+                        <div class="row" class="table-container-row">
+                            <div class="col table-container" id="database-table-container"></div>
+                        </div>
+                    </div>
+                    <div class="container-sm tab" id="tab-queries">
+                        <div class="row mb-4">
+                            <div class="col">
+                                <form id="qr-select-form">
+                                    <div class="form-row mb-2">
+                                        <div class="col">
+                                            <select class="form-control bg-dark text-light" id="qr-select-select" name="query">
+                                                <option value="" disabled selected>Select query</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-0">
+                                            <button type="button" class="btn btn-primary" id="qr-select">Select</button>
+                                        </div>
+                                    </div>
+                                    <div class="form-row" id="qr-filter-row">
+                                        <label class="col-0 col-form-label text-light" for="qr-select-select" id="qr-filter-label">[FilterName]</label>
+                                        <div class="col">
+                                            <select class="form-control bg-dark text-light" id="qr-filter-select" name="filter">
+                                                <option value="" disabled selected>Select filter:</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="row" class="table-container-row">
+                            <div class="col table-container" id="qr-result-container"></div>
+                        </div>
+                    </div>
+                    <div class="container-sm tab" id="tab-search">
+                        <div class="row mb-4">
+                            <div class="col">
+                                <form id="sr-form">
+                                    <div class="form-row mb-2">
+                                        <label class="col-form-label text-light" id="sr-label">Search in [TABLENAME] by [FIELD]</label>
+                                    </div>
+                                    <div class="form-row" id="qr-filter-row">
+                                        <div class="col">
+                                            <input type="text" class="form-control" id="sr-query" name="query" placeholder="Enter search query">
+                                        </div>
+                                        <div class="col-0">
+                                            <button type="button" class="btn btn-primary" id="sr-search">Search</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="row" class="table-container-row">
+                            <div class="col table-container" id="sr-result-container"></div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col" id="table-container"></div>
             </div>
         </div>
     </body>
