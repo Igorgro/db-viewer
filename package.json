@@ -15,7 +15,7 @@
     "author": "Igor Mahov",
     "license": "MIT",
     "devDependencies": {
-        "electron": "^8.2.2",
+        "electron": "^15.5.5",
         "electron-packager": "^14.2.1",
         "eslint": "^6.8.0"
     },
